@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		
+	</title>
+	<style type="text/css">
+		body{
+			background-color: #EEE8AA;
+			user-select: none;
+			margin-left: 24%;
+			margin-top: 7%;
+		}
+		.container{
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			grid-gap: 4px;
+			background-color: black;
+			padding:4px;
+			border-radius: 4px;
+			max-width: 360px;
+			font-family: "Tahoma";
+		}
+		.item{
+			background-color: white;
+			color: black;
+			padding:20px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 22px;
+			cursor: pointer;
+			font-weight: bold;
+
+		}
+		form{
+			max-width: 100%;
+		}
+		input{
+			width: 100%;
+			height: 60px;
+			border:none;
+			font-size: 30px;
+			outline: none;
+			text-align: right;
+		}
+		.input{
+			grid-column: 1/-1;
+			padding:0;
+
+		}
+		.clean{
+			grid-column: 1/3;
+			background-color: #FF7F50;
+
+		}
+		.back{
+			grid-column: 3/-1;
+
+		}
+		.equal{
+			grid-column: 4;
+			grid-row: 6/8;
+			background-color: #FF7F50;
+
+		}
+		.zero{
+			grid-column: 1/3;
+		}
+		.bg{
+			background-color: #FF7F50;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+<div class="item input">
+	<form name="form">
+		<input type="text" name="textiew" readonly />
+	</form>
+</div>
+<div class="item clean" onclick="clean()">c</div>
+<div class="item bg back" onclick="back()" >&larr;</div>
+<div class="item bg" onclick="insert('+')">+</div>
+<div class="item bg" onclick="insert('-')">-</div>
+<div class="item bg" onclick="insert('*')">*</div>
+<div class="item bg" onclick="insert('/')">/</div>
+<div class="item" onclick="insert('7')">7</div>
+<div class="item" onclick="insert('8')">8</div>
+<div class="item" onclick="insert('9')">9</div>
+<div class="item" onclick="insert('(')">(</div>
+<div class="item" onclick="insert('4')">4</div>
+<div class="item" onclick="insert('5')">5</div>
+<div class="item" onclick="insert('6')">6</div>
+<div class="item" onclick="insert(')')">)</div>
+<div class="item" onclick="insert('1')">1</div>
+<div class="item" onclick="insert('2')">2</div>
+<div class="item" onclick="insert('3')">3</div>
+<div class="item  equal" onclick="equal()">=</div>
+<div class="item zero" onclick="insert('0')">0</div>
+<div class="item" onclick="insert('.')">.</div>
+
+
+
+	</div>
+<script type="text/javascript">
+
+	function insert(num) {
+		document.form.textiew.value =
+		document.form.textiew.value + num;
+		// body...
+	}
+
+	function clean() {
+		document.form.textiew.value = "";
+	}
+
+	function back() {
+		var exp = document.form.textiew.value;
+		document.form.textiew.value = exp.substring(0,exp.length-1);
+	}
+	function equal() {
+		var exp = document.form.textiew.value;
+		if(exp){
+			document.form.textiew.value = eval(exp)
+		}
+	}
+</script>
+
+</body>
+</html>
